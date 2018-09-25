@@ -3,7 +3,7 @@
 		"posix-mq": "1.0.2"
 	},
 	"name"         : "openeyes-setbutton",
-	"version"      : "0.0.2",
+	"version"      : "0.0.3",
 	"description"  : "Create button on open-eyes LCD",
 	"repository" : {
 		"type": "git",
