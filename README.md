@@ -16,13 +16,13 @@ Requirements
 
 * Need OpenEyes hardware platform
 
-* Depends on [nan](https://www.npmjs.com/package/nan) & [posix-mq](https://www.npmjs.com/package/posix-mq) which will be automatically installed when running `npm install OpenEyes-SetButton`.
+* Depends on [nan](https://www.npmjs.com/package/nan) & [posix-mq](https://www.npmjs.com/package/posix-mq) which will be automatically installed when running `npm install openeyes-setbutton`.
 
 Install
 =======
 
 ```shell
-$ npm install OpenEyes-SetButton
+$ npm install openeyes-setbutton
 ```
 Values
 ========
