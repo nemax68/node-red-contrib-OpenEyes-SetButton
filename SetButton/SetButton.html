@@ -1,0 +1,149 @@
+<script type="text/javascript">
+    RED.nodes.registerType('set-button',{
+        category: 'OpenEyes',
+        color: '#a6bbcf',
+        defaults: {
+			wsize: {value:"100"},
+			hsize: {value:"100"},
+			xpos: {value:"0"},
+			ypos: {value:"0"},
+			bordersize: {value:"10"},
+			borderround: {value:"5"},
+			bordercol: {value:"000000"},
+			fontsize: {value:"30"},
+			fontcol: {value:"000000"},
+			maincol: {value:"FFFFFF"},
+			gradcol: {value:"000000"},
+			bid: {value:"1"},
+            name: {value:""}    //  along with default values.
+       	},
+        inputs:1,
+        outputs:0,
+        icon: "open-eyes.png",
+	    label: function() {     // sets the default label contents
+            return this.name||this.topic||"set--button";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="set-button">
+	<div class="form-row">
+		<label for="node-input-bid"><i class="icon-tag"></i> Button id</label>
+		<select type="text" id="node-input-bid" style="width:70%;">
+            <option value="1">BUTTON 1</option>
+            <option value="2">BUTTON 2</option>
+            <option value="3">BUTTON 3</option>
+            <option value="4">BUTTON 4</option>
+            <option value="5">BUTTON 5</option>
+            <option value="6">BUTTON 6</option>
+        </select>
+	</div>
+	<div class="form-row">
+    	<label for="node-input-wsize"> width</label>
+    	<input type="text" id="node-input-wsize" placeholder="width">
+	</div>
+	<div class="form-row">
+		<label for="node-input-hsize"> height</label>
+        <input type="text" id="node-input-hsize" placeholder="height">
+	</div>
+	<div class="form-row">
+        <label for="node-input-xpos"> pos x</label>
+        <input type="text" id="node-input-xpos" placeholder="button pixel y pos 0..350">
+	</div>
+	<div class="form-row">
+		<label for="node-input-ypos"> pos y</label>
+        <input type="text" id="node-input-ypos" placeholder="button pixel y pos 0..240">
+    </div>
+	<div class="form-row">
+		<label for="node-input-fontsize"> Font size</label>
+        <select type="text" id="node-input-fontsize" style="width:70%;">
+            <option value="10">10 pixel</option>
+            <option value="20">20 pixel</option>
+            <option value="30">30 pixel</option>
+            <option value="40">40 pixel</option>
+            <option value="50">50 pixel</option>
+            <option value="60">60 pixel</option>
+        </select>
+    </div>
+	<div class="form-row">
+        <label for="node-input-bordersize"> Border size</label>
+        <input type="text" id="node-input-bordersize" placeholder="size">
+    </div>
+	<div class="form-row">
+        <label for="node-input-borderround"> Border round</label>
+        <input type="text" id="node-input-borderround" placeholder="round">
+    </div>
+	<div class="form-row">
+        <label for="node-input-fontcol"> Font color</label>
+        <input type="text" id="node-input-fontcol" placeholder="color xxxxxx format">
+    </div>
+    <div class="form-row">
+        <label for="node-input-maincol"> Button color</label>
+        <input type="text" id="node-input-maincol" placeholder="color xxxxxx format">
+    </div>
+    <div class="form-row">
+        <label for="node-input-bordercol"> border color</label>
+        <input type="text" id="node-input-bordercol" placeholder="color xxxxxx format">
+    </div>
+    <div class="form-row">
+        <label for="node-input-gradcol"> gradient color</label>
+        <input type="text" id="node-input-gradcol" placeholder="color xxxxxx format">
+    </div>
+	<div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+</form>
+</script>
+
+<script type="text/x-red" data-help-name="set-button">
+    <p>An OpenEyes GUI interface node that setup a button into LCD display</p>
+
+	<h3>Node properties</h3>
+    <ul>
+		<code>Button id</code> - Button identifier (1..6) used to match event with <code>GetButton</code>
+    </ul>
+    <ul>
+		<code>width/height</code> - Button width and height in pixels.
+    </ul>
+	<ul>
+		<code>pos x/y</code> - Button position from left top corner in pixels.
+    </ul>
+	<ul>
+		<code>Font size</code> - Button text area font size.
+    </ul>
+	<ul>
+		<code>Border size</code> - Button border size in pixels.
+    </ul>
+	<ul>
+		<code>Border round</code> - Button corner angle in pixels.
+    </ul>
+	<ul>
+		<code>Font color</code> - Font color in format rrggbb hex. ex 0000ff=blue 00ff00=green ff0000=red
+    </ul>
+	<ul>
+		<code>Button color</code> - Button color in format rrggbb hex.
+    </ul>
+	<ul>
+		<code>Border color</code> - Border color in format rrggbb hex.
+    </ul>
+	<ul>
+		<code>Gradient color</code> - Gradient color in format rrggbb hex.
+    </ul>
+	<ul>
+		<code>Name</code> - Name.
+    </ul>
+
+	<h3>Details</h3>
+    <p>Node that build a posix massage to inform LCD control task about button position, size and color and forward msg.payload into the button text area <p>
+
+	<h3>References</h3>
+    <ul>
+        <li><a>GitHub</a> - the nodes github repository</li>
+    </ul>
+
+</script>
