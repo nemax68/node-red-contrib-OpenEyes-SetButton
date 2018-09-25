@@ -1,0 +1,24 @@
+{
+	"dependencies": {
+		"posix-mq": "1.0.2"
+	},
+	"name"         : "OpenEyes-create-button",
+	"version"      : "0.0.1",
+	"description"  : "Create button on open-eyes LCD",
+	"repository" : {
+		"type": "git",
+		"url": "https://github.com"
+	},
+	"license": "Apache-2.0",
+	"keywords": [ "node-red", "contrib", "OpenEyes", "set-button" ],
+	"main": "SetButton/SetButton.js",
+	"node-red"     : {
+		"nodes": {
+			"set-button": "SetButton.js"
+		}
+	},
+	"author": {
+		"name": "Massimiliano Negretti",
+		"email": "massimiliano.negretti@gmail.com"
+	}
+}
