@@ -27,6 +27,8 @@ $ npm install OpenEyes-SetButton
 Values
 ========
 
+![Values](https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton/blob/master/images/OpenEyes-SetButton-value.png)
+
 Examples
 ========
 
