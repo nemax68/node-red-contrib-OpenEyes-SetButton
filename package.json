@@ -2,7 +2,7 @@
 	"dependencies": {
 		"posix-mq": "1.0.2"
 	},
-	"name"         : "OpenEyes-create-button",
+	"name"         : "openeyes-setbutton",
 	"version"      : "0.0.1",
 	"description"  : "Create button on open-eyes LCD",
 	"repository" : {
