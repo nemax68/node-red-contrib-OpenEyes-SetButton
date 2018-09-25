@@ -1,7 +1,7 @@
 Description
 ===========
 
-![OpenEyes-SetButton-flow](https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton/edit/master/images/OpenEyes-SetButton-flow.png)
+![OpenEyes-SetButton-flow](https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton/blob/master/images/OpenEyes-SetButton-flow.png)
 
 A [node.js](http://nodejs.org/) library for create/modify buttons on OpenEyes LCD display
 
