@@ -16,7 +16,7 @@ Requirements
 
 * Need [OpenEyes](http://open-eyes.it) hardware platform
 
-  ![OpenEyes-SetButton-flow](https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton/tree/master/images/open-eyes.png)
+  ![OpenEyes-SetButton-flow](https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton/blob/master/images/open-eyes.png)
 
 * Depends on [nan](https://www.npmjs.com/package/nan) & [posix-mq](https://www.npmjs.com/package/posix-mq) which will be automatically installed when running `npm install openeyes-setbutton`.
 
@@ -29,7 +29,7 @@ $ npm install openeyes-setbutton
 Values
 ========
 
-![Values](https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton/tree/master/images/value.png)
+![Values](https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton/blob/master/images/value.png)
 
 Examples
 ========
