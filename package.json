@@ -2,16 +2,21 @@
 	"dependencies": {
 		"posix-mq": "1.1.2"
 	},
-	"name"         : "openeyes-setbutton",
-	"version"      : "0.0.4",
-	"description"  : "Create button on open-eyes LCD",
-	"repository" : {
+	"name": "openeyes-setbutton",
+	"version": "0.0.4",
+	"description": "Create button on open-eyes LCD",
+	"repository": {
 		"type": "git",
 		"url": "https://github.com/nemax68/node-red-contrib-OpenEyes-SetButton"
 	},
 	"license": "GPL-3.0-or-later",
-	"keywords": [ "node-red", "contrib", "OpenEyes", "set-button" ],
-	"node-red"     : {
+	"keywords": [
+		"node-red",
+		"contrib",
+		"OpenEyes",
+		"set-button"
+	],
+	"node-red": {
 		"nodes": {
 			"set-button": "SetButton/SetButton.js"
 		}
