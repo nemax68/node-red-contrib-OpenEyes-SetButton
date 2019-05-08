@@ -1,9 +1,9 @@
 {
 	"dependencies": {
-		"posix-mq": "1.1.2"
+		"posix-mq": "^1.1.2"
 	},
 	"name": "openeyes-setbutton",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Create button on open-eyes LCD",
 	"repository": {
 		"type": "git",
