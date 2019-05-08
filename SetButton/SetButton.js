@@ -33,43 +33,71 @@ module.exports = function (RED) {
 		this.fontcol = config.fontcol;
 		this.maincol = config.maincol;
 		this.gradcol = config.gradcol;
-		this.bid = Number(config.bid);
-		var posixmq = new PosixMQ();
+        this.name = config.name;
+		this.cmd = config.cmd;
+        this.queue = '/gui_cmd';
+
 		var node = this;
 		var msg;
 		var n;
 		var send = false;
 
-		posixmq.open({ name: '/gui_cmd',create: true,mode: '0777',maxmsgs: 10, msgsize: 256 });
-		node.status({fill: "green", shape: "dot", text: 'link'});
+        node.on('input', function(msg) {
+            var posixmq = new PosixMQ();
+            var str;
+            var payload=msg.payload;
+            var n;
 
-		node.on('input', function(msg) {
-			var str;
-			var payload=msg.payload;
-			var n;
+            try{
+                switch (node.cmd) {
+                case "1":
+                    var type = "addbutton";
+                    var color = {"main":node.maincol,"gradient":node.gradcol}
+                    var position = { "x" : node.xpos, "y" : node.ypos };
+					var font = { "color" : node.fontcol, "size" : node.fontsize };
+					var size = { "x" : node.wsize, "y" : node.hsize };
+					var border = { "color" : node.bordercol, "size" : node.bordersize, "round" : node.borderround };
+                    break;
+                case "2":
+                    var type = "addkeypad";
+					var color = {"main":node.maincol,"gradient":node.gradcol}
+                    var position = { "x" : node.xpos, "y" : node.ypos };
+					var font = { "color" : node.fontcol, "size" : node.fontsize };
+					var size = { "x" : node.wsize, "y" : node.hsize };
+					var border = { "color" : node.bordercol, "size" : node.bordersize, "round" : node.borderround };
+                    break;
+                default:
+                    var type = "none";
+                }
 
-			str = "BUTTON," + node.bid.toString() +
-						"," + node.wsize +
-						"," + node.hsize +
-						"," + node.xpos +
- 						"," + node.ypos +
- 						"," + node.fontsize +
- 						"," + node.fontcol +
- 						"," + node.bordersize +
- 						"," + node.borderround +
-  						"," + node.bordercol +
- 						"," + node.maincol +
- 						"," + node.gradcol +
-						"," + msg.payload.toString() + ",END";
+                var obj = {
+                    type: type,
+                    name: node.name,
+                    position: position,
+                    color: color,
+					font: font,
+					size: size,
+					border: border,
+					text: payload
+                };
 
-			n = posixmq.push(str);
-		});
+                var strJSON = JSON.stringify(obj);
 
-		node.on('close', function() {
-			posixmq.unlink();
-			posixmq.close();
-			node.status({fill: "red", shape: "dot", text: 'link'});
-		});
+                console.log(strJSON);
+
+                posixmq.open({ name: node.queue, create: false });
+                n = posixmq.push(strJSON);
+                posixmq.close();
+                node.status({fill: "green", shape: "dot", text: node.queue.toString()});
+            }
+            catch(err){
+                console.error(err);
+                node.status({fill: "red", shape: "dot", text: node.queue.toString()});
+            }
+
+
+        });
+
 	}
 
 	RED.nodes.registerType("set-button", GuiSetButton);

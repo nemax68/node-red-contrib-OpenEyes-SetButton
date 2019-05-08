@@ -31,12 +31,12 @@
 			fontcol: {value:"000000"},
 			maincol: {value:"FFFFFF"},
 			gradcol: {value:"000000"},
-			bid: {value:"1"},
+			cmd: {value:"1"},
             name: {value:""}    //  along with default values.
        	},
         inputs:1,
         outputs:0,
-        icon: "list-of-files.png",
+        icon: "button.png",
 	    label: function() {     // sets the default label contents
             return this.name||this.topic||"set-button";
         },
@@ -47,34 +47,51 @@
 </script>
 
 <script type="text/x-red" data-template-name="set-button">
+
 	<div class="form-row">
-		<label for="node-input-bid"><i class="icon-tag"></i> Button id</label>
-		<select type="text" id="node-input-bid" style="width:70%;">
-            <option value="1">BUTTON 1</option>
-            <option value="2">BUTTON 2</option>
-            <option value="3">BUTTON 3</option>
-            <option value="4">BUTTON 4</option>
-            <option value="5">BUTTON 5</option>
-            <option value="6">BUTTON 6</option>
+		<label for="node-input-cmd"><i class="icon-tag"></i> Button </label>
+		<select type="text" id="node-input-cmd" style="width:70%;">
+            <option value="1">Add button</option>
+            <option value="2">Add keypad</option>
         </select>
 	</div>
-	<div class="form-row">
+
+    <div class="form-row" id="node-maincol">
+        <label for="node-input-maincol"> Button color</label>
+        <input type="color" id="node-input-maincol" name="favcolor" >
+    </div>
+
+    <div class="form-row" id="node-gradcol">
+        <label for="node-input-gradcol"> gradient color</label>
+        <input type="color" id="node-input-gradcol" name="favcolor" >
+    </div>
+
+	<div class="form-row"  id="node-wsize">
     	<label for="node-input-wsize"> width</label>
     	<input type="text" id="node-input-wsize" placeholder="width">
 	</div>
-	<div class="form-row">
+
+	<div class="form-row"  id="node-hsize">
 		<label for="node-input-hsize"> height</label>
         <input type="text" id="node-input-hsize" placeholder="height">
 	</div>
-	<div class="form-row">
+
+	<div class="form-row" id="node-xpos">
         <label for="node-input-xpos"> pos x</label>
         <input type="text" id="node-input-xpos" placeholder="button pixel y pos 0..350">
 	</div>
-	<div class="form-row">
+
+	<div class="form-row" id="node-ypos">
 		<label for="node-input-ypos"> pos y</label>
         <input type="text" id="node-input-ypos" placeholder="button pixel y pos 0..240">
     </div>
-	<div class="form-row">
+
+    <div class="form-row" id="node-fontcol">
+        <label for="node-input-fontcol"> Font color</label>
+        <input type="color" id="node-input-fontcol" name="favcolor" >
+    </div>
+
+	<div class="form-row" id="node-fontsize">
 		<label for="node-input-fontsize"> Font size</label>
         <select type="text" id="node-input-fontsize" style="width:70%;">
             <option value="10">10 pixel</option>
@@ -85,30 +102,22 @@
             <option value="60">60 pixel</option>
         </select>
     </div>
-	<div class="form-row">
+
+    <div class="form-row" id="node-bordercol">
+        <label for="node-input-bordercol"> border color</label>
+        <input type="color" id="node-input-bordercol" name="favcolor" >
+    </div>
+
+	<div class="form-row" id="node-bordersize">
         <label for="node-input-bordersize"> Border size</label>
         <input type="text" id="node-input-bordersize" placeholder="size">
     </div>
-	<div class="form-row">
+
+    <div class="form-row" id="node-borderround">
         <label for="node-input-borderround"> Border round</label>
         <input type="text" id="node-input-borderround" placeholder="round">
     </div>
-	<div class="form-row">
-        <label for="node-input-fontcol"> Font color</label>
-        <input type="text" id="node-input-fontcol" placeholder="color xxxxxx format">
-    </div>
-    <div class="form-row">
-        <label for="node-input-maincol"> Button color</label>
-        <input type="text" id="node-input-maincol" placeholder="color xxxxxx format">
-    </div>
-    <div class="form-row">
-        <label for="node-input-bordercol"> border color</label>
-        <input type="text" id="node-input-bordercol" placeholder="color xxxxxx format">
-    </div>
-    <div class="form-row">
-        <label for="node-input-gradcol"> gradient color</label>
-        <input type="text" id="node-input-gradcol" placeholder="color xxxxxx format">
-    </div>
+
 	<div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
